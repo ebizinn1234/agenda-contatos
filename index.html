@@ -1,48 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculadora de medias</title>
+    <title>Agenda de Contatos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&family=Protest+Strike&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
     <header>
-        <img src="./logo.png" alt="logo">
-        <h1>Calculadora de Média</h1>
+        <div class="container">
+            <h1><i class="fas fa-address-book"></i> Minha Agenda de Contatos</h1>
+        </div>
     </header>
-    <form id="form-atividade">
-        <input type="text" id="nome-atividade" required placeholder="Nome da prova" />
-        <input type="number" id="nota-atividade" required placeholder="Nota da prova" min="0" max="10" /> 
-        <button type="submit"> Adicionar +</button>
-    </form>
-    <table cellspacing="0">
-        <thead>
-            <tr>
-                <th>Nome da prova</th>
-                <th>
-                    Nota da prova
-                </th>
-                <th> Aprovado ?</th>
-            </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-        <tfoot>
-            <tr>
-                <td > Media final</td>
-                <td id="media-final-valor">---</td>
-                <td id="media-final-resultado"> ---</td>
-            </tr>
-        </tfoot>
-    </table>
-</div>
-<script src="./main.js"></script>
-
+    <main>
+        <div class="container">
+            <section class="form-section">
+                <form id="contactForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="name" placeholder="Nome" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" placeholder="Telefone" required>
+                    </div>
+                    <button type="submit">
+                        <i class="fas fa-plus"></i> Cadastrar
+                    </button>
+                </form>
+            </section>
+            <section class="table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-user"></i> Nome</th>
+                            <th><i class="fas fa-phone"></i> Telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactTableBody"></tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - By Éber Lindo</p>
+        </div>
+    </footer>
+    <div id="popup" class="hidden">
+        <div class="popup-content">
+            <i class="popup-icon fas fa-check-circle"></i>
+            <h2 id="popup-title">Sucesso!</h2>
+            <p id="popup-text">Seu contato foi adicionado com sucesso.</p>
+            <button id="popup-close">Ok</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>

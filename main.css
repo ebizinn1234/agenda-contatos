@@ -1,82 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", serif;
+    font-family: "Overpass", sans-serif;
 }
+
+:root {
+    --primary-color: #4CAF50;
+    --primary-hover: #45a049;
+    --background-color: #f3f4f6;
+    --text-color: #333;
+    --header-footer-bg: #333;
+    --header-footer-text: white;
+    --table-border: #ddd;
+    --table-row-alt: #f9f9f9;
+    --icon-color: #4CAF50;
+    --input-bg: #fff;
+    --input-border: #ccc;
+    --input-placeholder: #aaa;
+}
+
 body {
-    background-color: azure;
-    padding-top: 100px;
-}
-header {
+    background-color: var(--background-color);
+    color: var(--text-color);
     display: flex;
-    align-items: center;
-    margin-bottom: 40px;
+    flex-direction: column;
+    min-height: 100vh;
 }
-header img {
-    height: 36px;
-    margin-right: 16px;
-}
-header h1{
-    font-size: 40px;
-    font-weight: bold;
-}
+
 .container {
-    max-width: 960px ;
+    max-width: 960px;
     width: 100%;
     margin: 0 auto;
+    padding: 0 1rem;
 }
-form {
-display: flex;
-max-width: 640px;
-width: 100%;
-justify-content: space-between;
-    margin-bottom: 56px;
-}
-form input {
-font-size: 24px;
-background-color: #fff;
-border: none;
-border-bottom: 2px solid #000;
-padding: 8px;
-}
-form button {
-background-color: green;
-color: #fff;
-font-size: 24px;
-font-weight: bold;
-border: none;
-cursor: pointer;
-padding: 8px;
-}
-table {
-width: 100%;
-}
-table th {
-    border-bottom: 2px solid #000;
-    padding: 16px;
-    font-size: 24px;
-    font-weight: bold;
-}
-table td {
-    padding: 16px 0;
+
+header {
+    background-color: var(--primary-color);
+    color: var(--header-footer-text);
+    padding: 1em 0;
     text-align: center;
-    font-size: 18px;
-    border-bottom:  1px solid rgba(0, 0, 0, 0.1)
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-table td img {
-width: 30px;
+
+header h1 {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
-.resultado{
-    padding: 8px;
+
+header i {
+    color: var(--header-footer-text);
+    font-size: 2rem;
+}
+
+.form-section {
+    padding: 2em 0;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    background: var(--input-bg);
+    padding: 0.8em;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    width: 350px; 
+    height: 50px; 
+}
+
+.input-group i {
+    font-size: 1.2rem;
+    color: var(--icon-color);
+}
+
+input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 1rem;
+    color: var(--text-color);
+    height: 100%; 
+}
+
+input::placeholder {
+    color: var(--input-placeholder);
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8em 1.5em;
+    font-size: 1rem;
     font-weight: bold;
-    color: #fff;
-    background-color: #000;
-    border-radius: 3px;
+    background-color: var(--primary-color);
+    color: var(--header-footer-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 50px; 
 }
-.aprovado{
-    background-color: green;
+
+button:hover {
+    background-color: var(--primary-hover);
 }
-.reprovado{
-    background-color: red;
+
+.table-section {
+    margin: 2em 0;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    text-align: left;
+    padding: 1em;
+    border: 1px solid var(--table-border);
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--header-footer-text);
+    text-transform: uppercase;
+    display: table-cell;
+    gap: 0.5rem;
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-row-alt);
+}
+
+tr {
+    display: table-row;
+}
+
+td {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 1em;
+}
+
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    text-align: center;
+    padding: 1em 0;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .input-group {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}
+
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+.popup-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    animation: pop-in 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.popup-icon {
+    font-size: 3rem;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+
+#popup-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+#popup-text {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+#popup-close {
+    padding: 12px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+}
+
+#popup-close:hover {
+    background-color: #45a049;
+}
+
+
+@keyframes pop-in {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+#popup.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+    .popup-content {
+        padding: 20px;
+    }
+
+    #popup-title {
+        font-size: 1.2rem;
+    }
+
+    #popup-text {
+        font-size: 0.9rem;
+    }
+
+    #popup-close {
+        width: 100%;
+        font-size: 0.95rem;
+    }
 }
